@@ -13,9 +13,7 @@
 		E64A192B2C35EF7C006BF400 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E64A192A2C35EF7C006BF400 /* Assets.xcassets */; };
 		E64A192E2C35EF7C006BF400 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = E64A192D2C35EF7C006BF400 /* Base */; };
 		E64A19412C35F08E006BF400 /* MoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A19352C35F08E006BF400 /* MoviesTableViewCell.swift */; };
-		E64A19422C35F08E006BF400 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A19372C35F08E006BF400 /* AppDelegate.swift */; };
 		E64A19432C35F08E006BF400 /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A19382C35F08E006BF400 /* Movie.swift */; };
-		E64A19442C35F08E006BF400 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A193A2C35F08E006BF400 /* SceneDelegate.swift */; };
 		E64A19452C35F08E006BF400 /* MovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A193B2C35F08E006BF400 /* MovieService.swift */; };
 		E64A19462C35F08E006BF400 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A193D2C35F08E006BF400 /* HomeViewController.swift */; };
 		E64A19472C35F08E006BF400 /* MovieDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E64A193E2C35F08E006BF400 /* MovieDetailsViewController.swift */; };
@@ -36,9 +34,7 @@
 		E64A192D2C35EF7C006BF400 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E64A192F2C35EF7C006BF400 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E64A19352C35F08E006BF400 /* MoviesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoviesTableViewCell.swift; sourceTree = "<group>"; };
-		E64A19372C35F08E006BF400 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E64A19382C35F08E006BF400 /* Movie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
-		E64A193A2C35F08E006BF400 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		E64A193B2C35F08E006BF400 /* MovieService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieService.swift; sourceTree = "<group>"; };
 		E64A193D2C35F08E006BF400 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		E64A193E2C35F08E006BF400 /* MovieDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewController.swift; sourceTree = "<group>"; };
@@ -100,10 +96,8 @@
 			children = (
 				E64A19212C35EF7B006BF400 /* AppDelegate.swift */,
 				E64A19232C35EF7B006BF400 /* SceneDelegate.swift */,
-				E64A19372C35F08E006BF400 /* AppDelegate.swift */,
 				E64A19362C35F08E006BF400 /* Cells */,
 				E64A19392C35F08E006BF400 /* Models */,
-				E64A193A2C35F08E006BF400 /* SceneDelegate.swift */,
 				E64A193C2C35F08E006BF400 /* Servicos */,
 				E64A19402C35F08E006BF400 /* ViewControllers */,
 				E64A192A2C35EF7C006BF400 /* Assets.xcassets */,
@@ -269,12 +263,10 @@
 				E65583702C37330800373E19 /* FavoriteMoviesViewController.swift in Sources */,
 				E65583722C373C4300373E19 /* FavoriteMovieCollectionViewCell.swift in Sources */,
 				E6C836962C3DE2B800317174 /* FavoritCollectionReusableView.swift in Sources */,
-				E64A19442C35F08E006BF400 /* SceneDelegate.swift in Sources */,
 				E64A19222C35EF7B006BF400 /* AppDelegate.swift in Sources */,
 				E64A19432C35F08E006BF400 /* Movie.swift in Sources */,
 				E64A19412C35F08E006BF400 /* MoviesTableViewCell.swift in Sources */,
 				E64A19462C35F08E006BF400 /* HomeViewController.swift in Sources */,
-				E64A19422C35F08E006BF400 /* AppDelegate.swift in Sources */,
 				E64A19452C35F08E006BF400 /* MovieService.swift in Sources */,
 				E64A19242C35EF7B006BF400 /* SceneDelegate.swift in Sources */,
 			);
