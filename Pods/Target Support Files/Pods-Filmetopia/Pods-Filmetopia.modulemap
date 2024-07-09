@@ -1,0 +1,6 @@
+framework module Pods_Filmetopia {
+  umbrella header "Pods-Filmetopia-umbrella.h"
+
+  export *
+  module * { export * }
+}
