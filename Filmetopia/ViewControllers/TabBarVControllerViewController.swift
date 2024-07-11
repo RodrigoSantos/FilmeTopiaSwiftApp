@@ -14,11 +14,10 @@ class TabBarVControllerViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        setupTabBarViewController()
     }
     
     //MARK - Class Methods
-   
     private func setupTabBarViewController() {
         let home = UINavigationController(rootViewController: MoviesViewController())
         let symbolConfiguration = UIImage.SymbolConfiguration(scale: .medium)
