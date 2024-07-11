@@ -36,6 +36,7 @@ class FavoriteMoviesViewController: UIViewController {
         super.viewDidLoad()
         addSubView()
         setupConstranints()
+        navigationController?.setNavigationBarHidden(true, animated: true)
         view.backgroundColor = .background
         
         // Do any additional setup after loading the view.
