@@ -9,8 +9,9 @@ import UIKit
 
 class FavoriteMoviesViewController: UIViewController {
     
-   // MARK: - Componentes
+    // MARK: - Componentes
     private let cellRegister: String = "FavoriteMovieCollectionViewCell"
+    private let cellRegisterReusable: String =  "FavoriteCollectionReusableView"
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -21,13 +22,14 @@ class FavoriteMoviesViewController: UIViewController {
         //collectionView.backgroundColor = .yellow
         collectionView.backgroundColor = .clear // TRasparente
         collectionView.register(FavoriteMovieCollectionViewCell.self, forCellWithReuseIdentifier: cellRegister)
+        collectionView.register(FavoriteCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cellRegisterReusable)
         collectionView.dataSource = self
         collectionView.delegate = self
         
         return collectionView
     }()
     
-   // MARK: - View life Cyrcle
+    // MARK: - View life Cyrcle
     
     
     override func viewDidLoad() {
@@ -35,7 +37,7 @@ class FavoriteMoviesViewController: UIViewController {
         addSubView()
         setupConstranints()
         view.backgroundColor = .background
-
+        
         // Do any additional setup after loading the view.
     }
     
@@ -53,17 +55,14 @@ class FavoriteMoviesViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
-
-    
-
 }
 
 extension FavoriteMoviesViewController : UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-       return movies.count
+        return movies.count
     }
+    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellRegister, for: indexPath) as? FavoriteMovieCollectionViewCell else { fatalError("Erro ao retotnar FavoriteMovieCollectionViewCell")}
@@ -73,8 +72,24 @@ extension FavoriteMoviesViewController : UICollectionViewDataSource {
         return cell
     }
     
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            guard let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: cellRegisterReusable, for: indexPath) as? FavoriteCollectionReusableView else {
+                fatalError("error to create collectionview header")
+            }
+            
+            headerView.setupTitle("Meus filmes favoritos")
+            
+            
+            return headerView
+        }
+        
+        return UICollectionReusableView()
+    }
+    
 }
-
+//Protocolo responsável por determinar o tamanho e da minha coleção
 extension FavoriteMoviesViewController : UICollectionViewDelegateFlowLayout{
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -82,7 +97,14 @@ extension FavoriteMoviesViewController : UICollectionViewDelegateFlowLayout{
         // Largura não pode ser fixo pois pode mudar o tamanho do dispositivo
         return CGSize(width: tamanhoDaColecaoDivididoPorColumas, height: 200)
     }
+    
+    //Formata o título no header
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 50)
+    }
 }
+
+
 #Preview {
     
     FavoriteMoviesViewController()
