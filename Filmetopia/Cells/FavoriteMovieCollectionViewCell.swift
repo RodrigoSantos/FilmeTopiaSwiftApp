@@ -26,7 +26,7 @@ class FavoriteMovieCollectionViewCell: UICollectionViewCell {
         //label.text = "Avatar"
         label.textColor = .white
         label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 20, weight: .bold)
+        label.font = .systemFont(ofSize: 14, weight: .medium)
         label.textAlignment = .center
         
         return label
