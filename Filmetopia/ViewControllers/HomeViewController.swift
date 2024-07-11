@@ -69,7 +69,7 @@ class HomeViewController: UIViewController {
     }
     
     @objc private func buttonPress(){
-        navigationController?.pushViewController(MoviesViewController(), animated: true)
+        navigationController?.pushViewController(TabBarVControllerViewController(), animated: true)
     }
     
     private func addSubViews(){
