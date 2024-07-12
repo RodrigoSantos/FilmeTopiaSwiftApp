@@ -41,19 +41,43 @@ class MoviesTableViewCell: UITableViewCell {
         return label
     }()
     
+    private lazy var favoriteButton : UIButton = {
+       let button = UIButton()
+        button.translatesAutoresizingMaskIntoConstraints = false
+        
+        //Cria o icone e mantem as caracteristicas originas
+        let iconImage = UIImage(systemName: "heart")?.withTintColor(.buttonBackGround, renderingMode: .alwaysOriginal)
+        
+        button.setImage(iconImage, for: .normal)
+       // button.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside)
+        
+        return button
+    }()
+    
+ 
+    
     func ConfigureCell(movie : Movie){
         movieTituloLabel.text = movie.title
         let url = URL(string: movie.image)
         moviePosterImageView.kf.setImage(with: url)
         //moviePosterImageView.image = UIImage(named: movie.image)
         dataLancamentoLabel.text = "Lançamento :  \(movie.releaseDate)"
-        
+        //Configura stado do botão
+        let heart = UIImage(systemName: "heart")?.withTintColor(.tabBarBackGroundCollor, renderingMode: .alwaysOriginal)
+        let heartFill = UIImage(systemName: "heart.fill")?.withTintColor(.tabBarBackGroundCollor, renderingMode: .alwaysOriginal)
+        if movie.isSelected {
+            favoriteButton.setImage(heartFill, for: .normal)
+        }
+        else {
+            favoriteButton.setImage(heart, for: .normal)
+        }
     }
     
     private  func AddSubviews() {
         contentView.addSubview(moviePosterImageView)
         contentView.addSubview(movieTituloLabel)
         contentView.addSubview(dataLancamentoLabel)
+        contentView.addSubview(favoriteButton)
     }
     
     private func SetupConstraints(){
@@ -71,7 +95,12 @@ class MoviesTableViewCell: UITableViewCell {
             movieTituloLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -16),
             
             dataLancamentoLabel.topAnchor.constraint(equalTo: movieTituloLabel.bottomAnchor, constant: 7),
-            dataLancamentoLabel.leadingAnchor.constraint(equalTo: movieTituloLabel.leadingAnchor)
+            dataLancamentoLabel.leadingAnchor.constraint(equalTo: movieTituloLabel.leadingAnchor),
+            
+            favoriteButton.topAnchor.constraint(equalTo: dataLancamentoLabel.bottomAnchor, constant: 8),
+            favoriteButton.leadingAnchor.constraint(equalTo: moviePosterImageView.trailingAnchor, constant: 16),
+            favoriteButton.heightAnchor.constraint(equalToConstant: 25),
+            favoriteButton.widthAnchor.constraint(equalToConstant: 25)
             //dataLancamentoLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor,constant: 30),
             //dataLancamentoLabel.trailingAnchor.constraint(equalTo: moviePosterImageView.trailingAnchor, constant: 249),
             //dataLancamentoLabel.topAnchor.constraint(equalTo: movieTituloLabel.topAnchor, constant: 40)
