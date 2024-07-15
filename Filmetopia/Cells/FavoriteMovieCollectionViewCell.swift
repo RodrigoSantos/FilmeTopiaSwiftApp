@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol FavoriteMovieCollectionViewCellDelegate: AnyObject{
+    func didSelectFavoritButton(sender: UIButton)
+}
+
 class FavoriteMovieCollectionViewCell: UICollectionViewCell {
     //MARK: - Componentes
        
@@ -43,6 +47,9 @@ class FavoriteMovieCollectionViewCell: UICollectionViewCell {
         
         return botao
     }()
+    
+    //Importante adicionar como uma referencia fraca para sair da memoria quando não utiliza mais
+    weak var delegate: FavoriteMovieCollectionViewCellDelegate?
     
     
     //MARK: - View Life Cyrcle
@@ -95,7 +102,7 @@ class FavoriteMovieCollectionViewCell: UICollectionViewCell {
     }
     
     @objc func didTapBotaoFavorito(_ sender: UIButton){
-        botaoFavorito.tintColor = .white
-        print("teste")
+        //chama o delegate para enviar o botão para outra view
+        delegate?.didSelectFavoritButton(sender: sender)
     }
 }
