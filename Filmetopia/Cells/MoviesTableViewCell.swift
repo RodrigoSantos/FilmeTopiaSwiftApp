@@ -142,7 +142,7 @@ class MoviesTableViewCell: UITableViewCell {
     
     @objc
     func didTapFavoriteButton(sender: UIButton){
-        print("Teste")
+        delegate?.didSelectFavoriteButton(sender: sender)
     }
 }
 

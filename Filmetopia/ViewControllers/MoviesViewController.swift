@@ -123,6 +123,7 @@ extension MoviesViewController : UITableViewDataSource, UITableViewDelegate {
             let movie = _isSearchBarActivate ? _filterMovie[indexPath.row] : movies[indexPath.row]
             cell.ConfigureCell(movie: movie )// Passa a celula os filmesconforme o index da lista
             cell.selectionStyle = .none
+            cell.delegate = self// Aqui é onde contecta a moviesTableViewCell com está classe
             return cell
         }
         //var configuration = cell.defaultContentConfiguration()
@@ -161,5 +162,24 @@ extension MoviesViewController : UISearchBarDelegate {
             })
         }
         tableView.reloadData()
+    }
+}
+//Implementacao do protocolo MovieTableViewCellDelegate
+extension MoviesViewController : MovieTableViewCellDelegate{
+    func didSelectFavoriteButton(sender: UIButton) {
+        //recupero a cell através do sender
+        print("Teste")
+        guard let cell = sender.superview?.superview as? MoviesTableViewCell else {
+            return
+        }
+        //descobrir o indice da celula que foi enviada
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        let selectMovie = movies[indexPath.row] // Pega o filme na linha que o usuário clicou
+        
+        print(selectMovie.title)
+        
     }
 }
