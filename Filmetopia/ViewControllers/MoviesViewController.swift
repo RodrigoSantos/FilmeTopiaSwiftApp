@@ -168,7 +168,7 @@ extension MoviesViewController : UISearchBarDelegate {
 extension MoviesViewController : MovieTableViewCellDelegate{
     func didSelectFavoriteButton(sender: UIButton) {
         //recupero a cell através do sender
-        print("Teste")
+        
         guard let cell = sender.superview?.superview as? MoviesTableViewCell else {
             return
         }
@@ -178,8 +178,12 @@ extension MoviesViewController : MovieTableViewCellDelegate{
         }
         
         let selectMovie = movies[indexPath.row] // Pega o filme na linha que o usuário clicou
+        selectMovie.changeSelectionStatus()
+        MovieManeger.shared.add(selectMovie)
         
-        print(selectMovie.title)
+        //reload somente a celula
+        tableView.reloadRows(at: [indexPath], with: .automatic)
         
+        // tableView.reloadData() recareggaria toda tabela      
     }
 }

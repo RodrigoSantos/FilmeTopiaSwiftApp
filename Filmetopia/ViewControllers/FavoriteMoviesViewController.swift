@@ -53,7 +53,7 @@ class FavoriteMoviesViewController: UIViewController {
 extension FavoriteMoviesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0 //movies.count
+        return MovieManeger.shared.favoritesMovies.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -61,8 +61,8 @@ extension FavoriteMoviesViewController: UICollectionViewDataSource {
             fatalError("error to create FavoriteMovieCollectionViewCell")
         }
         
-        //let currentMovie = movies[indexPath.item]
-       // cell.setupView(currentMovie)
+        let currentMovie = MovieManeger.shared.favoritesMovies[indexPath.item]
+        cell.setupView(currentMovie)
         
         return cell
     }
@@ -92,9 +92,9 @@ extension FavoriteMoviesViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-
+/*
 #Preview {
     
     FavoriteMoviesViewController()
-}
+}*/
 
