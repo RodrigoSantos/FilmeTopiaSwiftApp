@@ -8,6 +8,10 @@
 import UIKit
 import Kingfisher
 
+protocol MovieTableViewCellDelegate: AnyObject {
+    func didSelectFavoriteButton(sender: UIButton)
+}
+
 class MoviesTableViewCell: UITableViewCell {
     
    private lazy var moviePosterImageView : UIImageView = {
@@ -49,10 +53,12 @@ class MoviesTableViewCell: UITableViewCell {
         let iconImage = UIImage(systemName: "heart")?.withTintColor(.buttonBackGround, renderingMode: .alwaysOriginal)
         
         button.setImage(iconImage, for: .normal)
-       // button.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside)
+        button.addTarget(self, action: #selector(didTapFavoriteButton), for: .touchUpInside)
         
         return button
     }()
+    
+    weak var delegate: MovieTableViewCellDelegate?
     
  
     
@@ -130,6 +136,13 @@ class MoviesTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    // MARK - Actions
+    
+    @objc
+    func didTapFavoriteButton(sender: UIButton){
+        print("Teste")
     }
 }
 
