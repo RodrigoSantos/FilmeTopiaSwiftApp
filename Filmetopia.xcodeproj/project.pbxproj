@@ -22,6 +22,7 @@
 		E65583722C373C4300373E19 /* FavoriteMovieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E65583712C373C4300373E19 /* FavoriteMovieCollectionViewCell.swift */; };
 		E6B91A232C406E82009557D9 /* TabBarVControllerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6B91A222C406E82009557D9 /* TabBarVControllerViewController.swift */; };
 		E6C836962C3DE2B800317174 /* FavoriteCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6C836952C3DE2B800317174 /* FavoriteCollectionReusableView.swift */; };
+		E6F1FAF72C41C0E7009241FD /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E6F1FAF62C41C0E7009241FD /* MovieManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		E65583712C373C4300373E19 /* FavoriteMovieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteMovieCollectionViewCell.swift; sourceTree = "<group>"; };
 		E6B91A222C406E82009557D9 /* TabBarVControllerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVControllerViewController.swift; sourceTree = "<group>"; };
 		E6C836952C3DE2B800317174 /* FavoriteCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteCollectionReusableView.swift; sourceTree = "<group>"; };
+		E6F1FAF62C41C0E7009241FD /* MovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +125,7 @@
 			isa = PBXGroup;
 			children = (
 				E64A19382C35F08E006BF400 /* Movie.swift */,
+				E6F1FAF62C41C0E7009241FD /* MovieManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -271,6 +274,7 @@
 				E64A19412C35F08E006BF400 /* MoviesTableViewCell.swift in Sources */,
 				E64A19462C35F08E006BF400 /* HomeViewController.swift in Sources */,
 				E6B91A232C406E82009557D9 /* TabBarVControllerViewController.swift in Sources */,
+				E6F1FAF72C41C0E7009241FD /* MovieManager.swift in Sources */,
 				E64A19452C35F08E006BF400 /* MovieService.swift in Sources */,
 				E64A19242C35EF7B006BF400 /* SceneDelegate.swift in Sources */,
 			);
