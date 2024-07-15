@@ -53,6 +53,12 @@ class MoviesViewController: UIViewController {
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
     private func AddSubView(){
         view.addSubview(tableView)
     }
@@ -184,6 +190,6 @@ extension MoviesViewController : MovieTableViewCellDelegate{
         //reload somente a celula
         tableView.reloadRows(at: [indexPath], with: .automatic)
         
-        // tableView.reloadData() recareggaria toda tabela      
+        // tableView.reloadData() recareggaria toda tabela
     }
 }
