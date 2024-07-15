@@ -37,6 +37,12 @@ class FavoriteMoviesViewController: UIViewController {
         setupConstraints()
     }
     
+    //Para atualizar toda vez que entra nos favoritos
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        collectionView.reloadData()
+    }
+    
     // MARK: - Class methods
     
     private func setupConstraints() {
