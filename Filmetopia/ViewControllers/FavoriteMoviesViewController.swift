@@ -102,11 +102,21 @@ extension FavoriteMoviesViewController: UICollectionViewDelegateFlowLayout {
 
 extension FavoriteMoviesViewController: FavoriteMovieCollectionViewCellDelegate {
     func didSelectFavoritButton(sender: UIButton) {
-        print("Deu boas")
+        guard let cell = sender.superview as? FavoriteMovieCollectionViewCell else {
+            return
+        }
+        
+        guard let indexPath = collectionView.indexPath(for: cell) else {
+            return
+        }
+        
+        let selectMovie = MovieManeger.shared.favoritesMovies[indexPath.item]
+        selectMovie.changeSelectionStatus()
+        MovieManeger.shared.remove(selectMovie)
+        
+        collectionView.reloadData()
+        
     }
-    
-    
-    
 }
 
 /*
