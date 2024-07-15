@@ -65,7 +65,7 @@ class MoviesTableViewCell: UITableViewCell {
         //Configura stado do botão
         let heart = UIImage(systemName: "heart")?.withTintColor(.tabBarBackGroundCollor, renderingMode: .alwaysOriginal)
         let heartFill = UIImage(systemName: "heart.fill")?.withTintColor(.tabBarBackGroundCollor, renderingMode: .alwaysOriginal)
-        if movie.isSelected {
+        if movie.isSelected ?? false {
             favoriteButton.setImage(heartFill, for: .normal)
         }
         else {
