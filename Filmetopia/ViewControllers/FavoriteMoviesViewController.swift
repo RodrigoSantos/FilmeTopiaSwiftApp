@@ -12,15 +12,14 @@ class FavoriteMoviesViewController: UIViewController {
     // MARK: - Componentes
     private let cellRegister: String = "FavoriteMovieCollectionViewCell"
     private let cellRegisterReusable: String =  "FavoriteCollectionReusableView"
+    // MARK: - UI Components
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = UIEdgeInsets(top: 20, left: 27, bottom: 10, right: 27)//Ajusta celula  nova
-        
+        layout.sectionInset = UIEdgeInsets(top: 20, left: 27, bottom: 10, right: 27)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.backgroundColor = .clear
         collectionView.translatesAutoresizingMaskIntoConstraints = false
-        //collectionView.backgroundColor = .yellow
-        collectionView.backgroundColor = .clear // TRasparente
         collectionView.register(FavoriteMovieCollectionViewCell.self, forCellWithReuseIdentifier: cellRegister)
         collectionView.register(FavoriteCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: cellRegisterReusable)
         collectionView.dataSource = self
@@ -29,26 +28,19 @@ class FavoriteMoviesViewController: UIViewController {
         return collectionView
     }()
     
-    // MARK: - View life Cyrcle
-    
-    
+    // MARK: - View life cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        addSubView()
-        setupConstranints()
         navigationController?.setNavigationBarHidden(true, animated: true)
         view.backgroundColor = .background
-        
-        // Do any additional setup after loading the view.
+        setupConstraints()
     }
     
-    // MARK: - Class Methods
-    private func addSubView(){
+    // MARK: - Class methods
+    
+    private func setupConstraints() {
         view.addSubview(collectionView)
-    }
-    
-    private func setupConstranints(){
-        
         NSLayoutConstraint.activate([
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
@@ -58,21 +50,22 @@ class FavoriteMoviesViewController: UIViewController {
     }
 }
 
-extension FavoriteMoviesViewController : UICollectionViewDataSource {
+extension FavoriteMoviesViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return movies.count
+        return 0 //movies.count
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellRegister, for: indexPath) as? FavoriteMovieCollectionViewCell else { fatalError("Erro ao retotnar FavoriteMovieCollectionViewCell")}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellRegister, for: indexPath) as? FavoriteMovieCollectionViewCell else {
+            fatalError("error to create FavoriteMovieCollectionViewCell")
+        }
         
-        let currentMovie = movies[indexPath.item]
-        cell.setupView(currentMovie)
+        //let currentMovie = movies[indexPath.item]
+       // cell.setupView(currentMovie)
+        
         return cell
     }
-    
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         if kind == UICollectionView.elementKindSectionHeader {
@@ -82,24 +75,18 @@ extension FavoriteMoviesViewController : UICollectionViewDataSource {
             
             headerView.setupTitle("Meus filmes favoritos")
             
-            
             return headerView
         }
         
         return UICollectionReusableView()
     }
-    
 }
-//Protocolo responsável por determinar o tamanho e da minha coleção
-extension FavoriteMoviesViewController : UICollectionViewDelegateFlowLayout{
-    
+
+extension FavoriteMoviesViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let tamanhoDaColecaoDivididoPorColumas = collectionView.frame.width/3
-        // Largura não pode ser fixo pois pode mudar o tamanho do dispositivo
-        return CGSize(width: tamanhoDaColecaoDivididoPorColumas, height: 200)
+        return CGSize(width: collectionView.frame.width/3, height: 200)
     }
     
-    //Formata o título no header
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: collectionView.bounds.width, height: 50)
     }
